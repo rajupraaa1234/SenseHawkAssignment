@@ -65,7 +65,7 @@ const HomeScreen = (props) => {
    }
    return (
       <View>
-         <Header isLeft={true} leftIcon={"sign-out"} name={user} leftClick={onLogout} />
+         <Header isLeft={true} leftIcon={"sign-out"} name={user} leftClick={onLogout} rightIcon={"shopping-cart"}/>
          <View style={styles.innerContainer}>
             <FlatList
                data={restaurantlist}
