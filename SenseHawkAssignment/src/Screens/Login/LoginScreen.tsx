@@ -4,11 +4,7 @@ import { Tracker } from '@images';
 import TextInput from "react-native-text-input-interactive";
 import { CustomButton } from '@components';
 import { STRING } from '@constants';
-<<<<<<< Updated upstream
-import { DeviceDimension, isValidEmail } from '@utils';
-=======
 import { DeviceDimension, isValidEmail , setAsValue , getAsValue } from '@utils';
->>>>>>> Stashed changes
 import style from './style'
 import { useToast } from "react-native-toast-notifications";
 import auth from '@react-native-firebase/auth';
@@ -48,13 +44,10 @@ const LoginScreen = (props: any) => {
 
   }
 
-<<<<<<< Updated upstream
-=======
   const redirectToHomeScreen = async () => {
     await setAsValue("username" , username)
     props.navigation.navigate("HomeScreen")
   }
->>>>>>> Stashed changes
 
   const onSignUp = async () => {
     try {
@@ -63,10 +56,7 @@ const LoginScreen = (props: any) => {
         .then(() => {
           Toast.show("User account created & signed in!");
           onEnd();
-<<<<<<< Updated upstream
-=======
           redirectToHomeScreen();
->>>>>>> Stashed changes
         })
         .catch(error => {
           if (error.code === 'auth/email-already-in-use') {
@@ -90,10 +80,7 @@ const LoginScreen = (props: any) => {
       console.log('User signed in:', user.email);
       Toast.show("user logged in successfully!");
       onEnd();
-<<<<<<< Updated upstream
-=======
       redirectToHomeScreen();
->>>>>>> Stashed changes
     }
     catch (error) {
       if (error.code === 'auth/wrong-password') {
