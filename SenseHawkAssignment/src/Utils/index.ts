@@ -1,11 +1,13 @@
 import  {
     getFontSize,
     DeviceDimension,
-    isTablet
+    isTablet,
+    isValidEmail
 } from './utils'
 
 export {
     getFontSize,
     DeviceDimension,
-    isTablet
+    isTablet,
+    isValidEmail
 }

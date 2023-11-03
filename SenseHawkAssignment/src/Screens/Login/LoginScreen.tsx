@@ -4,8 +4,10 @@ import { Tracker } from '@images';
 import TextInput from "react-native-text-input-interactive";
 import { CustomButton } from '@components';
 import { STRING } from '@constants';
-import { DeviceDimension } from '@utils';
+import { DeviceDimension, isValidEmail } from '@utils';
 import style from './style'
+import { useToast } from "react-native-toast-notifications";
+import auth from '@react-native-firebase/auth';
 
 const LoginScreen = (props: any) => {
   const [page, setPage] = useState(0);    // 0 for Login , 1 for Signup
@@ -14,6 +16,7 @@ const LoginScreen = (props: any) => {
   const [PageButton, setPageButton] = useState(false);
   const [submitBtn, setSubmitBtn] = useState(false);
   const [loader, setLoader] = useState(false);
+  const Toast = useToast();
 
   const onStart = () => {
     setLoader(true);
@@ -41,8 +44,70 @@ const LoginScreen = (props: any) => {
 
   }
 
-  const onSubmit = () => {
 
+  const onSignUp = async () => {
+    try {
+      auth()
+        .createUserWithEmailAndPassword(username, password)
+        .then(() => {
+          Toast.show("User account created & signed in!");
+          onEnd();
+        })
+        .catch(error => {
+          if (error.code === 'auth/email-already-in-use') {
+            Toast.show("That email address is already in use!");
+          }
+          if (error.code === 'auth/invalid-email') {
+            Toast.show("That email address is invalid!");
+          }
+          onEnd();
+          console.error(error);
+        });
+    } catch (error) {
+      console.log(error);
+      onEnd();
+    }
+  }
+  const onLogin = async () => {
+    try {
+      const userCredential = await auth().signInWithEmailAndPassword(username, password);
+      const user = userCredential.user;
+      console.log('User signed in:', user.email);
+      Toast.show("user logged in successfully!");
+      onEnd();
+    }
+    catch (error) {
+      if (error.code === 'auth/wrong-password') {
+        Toast.show("password incorrect!");
+      }
+      if (error.code === 'auth/invalid-login') {
+        Toast.show("user not found!");
+      }
+      console.error('Error signing in:', error);
+      onEnd();
+    }
+  }
+  const onSubmit = () => {
+    if (username.length == 0) {
+      Toast.show("please enter email id");
+      return;
+    }
+    if (password.length == 0) {
+      Toast.show("please enter password");
+      return;
+    }
+    if (!isValidEmail(username)) {
+      Toast.show("email not valid");
+    } else if (password.length < 6) {
+      Toast.show("Password should be at least 6 characters");
+    } else {
+      onStart();
+      if (page == 0) {
+        onLogin();
+      } else {
+        onSignUp();
+      }
+    }
   }
 
   return (

@@ -6,11 +6,17 @@
  */
 
 import React from 'react';
+import { LogBox } from 'react-native';
 import RootNavigation from './src/Navigation/RootNavigation';
+import { ToastProvider } from 'react-native-toast-notifications'
+
+LogBox.ignoreAllLogs();
 
 const App = () => {
   return (
-    <RootNavigation />
+    <ToastProvider>
+      <RootNavigation />
+    </ToastProvider>
   )
 }
 
