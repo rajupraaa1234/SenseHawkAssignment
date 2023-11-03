@@ -2,11 +2,7 @@ import  {
     getFontSize,
     DeviceDimension,
     isTablet,
-<<<<<<< Updated upstream
     isValidEmail
-=======
-    isValidEmail,
->>>>>>> Stashed changes
 } from './utils'
 
 import {
@@ -15,16 +11,17 @@ import {
     clearStorage,
 } from './asyncStorage'
 
+import {
+    restaurantlist
+} from './DummyData/dummyData'
+
 export {
     getFontSize,
     DeviceDimension,
     isTablet,
-<<<<<<< Updated upstream
-    isValidEmail
-=======
     isValidEmail,
     setAsValue,
     getAsValue,
     clearStorage,
->>>>>>> Stashed changes
+    restaurantlist
 }

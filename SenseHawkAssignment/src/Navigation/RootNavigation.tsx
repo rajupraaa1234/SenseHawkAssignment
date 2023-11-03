@@ -19,8 +19,8 @@ const RootNavigation = () => {
         setTimeout(() => {
             if (user) {
                 setLoggined(true);
-                setLoader(false);
             }
+            setLoader(false);
         }, 300);
     }
     return (
