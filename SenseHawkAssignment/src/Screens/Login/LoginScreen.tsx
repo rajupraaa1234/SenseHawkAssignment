@@ -1,10 +1,10 @@
-import React, { useState , useEffect} from "react";
+import React, { useState } from "react";
 import { View, Text, ImageBackground, TouchableOpacity, ScrollView, SafeAreaView, ActivityIndicator } from 'react-native';
 import { Tracker } from '@images';
 import TextInput from "react-native-text-input-interactive";
 import { CustomButton } from '@components';
 import { STRING } from '@constants';
-import { DeviceDimension, isValidEmail , setAsValue , getAsValue } from '@utils';
+import { DeviceDimension, isValidEmail, setAsValue } from '@utils';
 import style from './style'
 import { useToast } from "react-native-toast-notifications";
 import auth from '@react-native-firebase/auth';
@@ -36,16 +36,9 @@ const LoginScreen = (props: any) => {
     }, 1000);
   }
 
-  const login = async () => {
-
-  }
-
-  const signUp = async () => {
-
-  }
 
   const redirectToHomeScreen = async () => {
-    await setAsValue("username" , username)
+    await setAsValue("username", username)
     props.navigation.navigate("HomeScreen")
   }
 

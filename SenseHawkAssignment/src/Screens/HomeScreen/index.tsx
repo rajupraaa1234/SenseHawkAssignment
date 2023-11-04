@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, FlatList, TouchableWithoutFeedback, Image } from 'react-native';
+import { View, Text, FlatList, TouchableWithoutFeedback, Image, ScrollView } from 'react-native';
 import { Header } from '@components';
+import auth from '@react-native-firebase/auth';
 import { restro } from '@images';
 import { getAsValue, clearStorage, restaurantlist } from '@utils';
 import styles from './styles';
@@ -16,9 +17,21 @@ const HomeScreen = (props) => {
       setUser(`Hey, ${user}`);
    }
    const onLogout = async () => {
-      await clearStorage();
-      props.navigation.navigate("LoginScreen")
+      try {
+         auth()
+            .signOut()
+            .then(() => console.log('User signed out!'));
+         await clearStorage();
+         props.navigation.navigate("LoginScreen")
+      } catch (error) {
+         console.log(error)
+      }
    }
+
+   const onCartClick = () => {
+      props.navigation.navigate("AddToCartScreen");
+   }
+
    const renderItem = (data) => {
       return (
          <View>
@@ -64,16 +77,17 @@ const HomeScreen = (props) => {
       )
    }
    return (
-      <View>
-         <Header isLeft={true} leftIcon={"sign-out"} name={user} leftClick={onLogout} rightIcon={"shopping-cart"} />
-         <View style={styles.innerContainer}>
-            <FlatList
-               data={restaurantlist}
-               keyExtractor={index => index}
-               renderItem={renderItem}
-            />
-         </View>
-
+      <View style={{ flex: 1 }}>
+         <Header isLeft={true} leftIcon={"sign-out"} name={user} leftClick={onLogout} rightClick={onCartClick} rightIcon={"shopping-cart"} />
+         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+            <View style={styles.innerContainer}>
+               <FlatList
+                  data={restaurantlist}
+                  keyExtractor={index => index}
+                  renderItem={renderItem}
+               />
+            </View>
+         </ScrollView>
       </View>
    )
 }

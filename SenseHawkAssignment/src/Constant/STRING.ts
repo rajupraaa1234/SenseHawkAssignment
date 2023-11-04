@@ -3,5 +3,6 @@ export const STRING = {
     dontHaveAccount : "Don't have an account ?",
     haveAccount : "Do you have an account ?",
     login : "Login",
-    signup : "SignUp"
+    signup : "SignUp",
+    emptyCartInstruction : "Your cart is empty please choose your dish first!",
 }

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, ScrollView } from 'react-native';
 import { Header, FoodRenderItem } from '@components';
-import { foodListData } from '@utils';
-import { getAsValue, setAsValue } from '@utils';
+import { getAsValue, setAsValue, foodListData } from '@utils';
 
 
-const FoodListScreen = (props) => {
+const FoodListScreen = (props: any) => {
     const receivedData = props.route.params ? props.route.params.restroData : null;
     const id = receivedData.item.id;
     const foodData = foodListData.slice(id * 5 - 5, id * 5);
@@ -19,68 +18,81 @@ const FoodListScreen = (props) => {
     }, [])
 
     const calculateTotal = async () => {
-        const userData = await getAsValue('data');
-        let olderData = JSON.parse(userData);
-        let totalPrice = 0;
-        olderData.map(item => {
-            totalPrice = totalPrice + item.price * item.count;
-        });
-        setTotal(totalPrice.toFixed(2));
+        try {
+            const userData = await getAsValue('data');
+            let olderData = JSON.parse(userData);
+            let totalPrice = 0;
+            olderData.map(item => {
+                totalPrice = totalPrice + item.price * item.count;
+            });
+            setTotal(totalPrice.toFixed(2));
+        } catch (error) {
+            console.log(error)
+        }
     }
     const onAddAndRemove = async (data, count) => {
-        const userData = await getAsValue('data');
-        let isAvailable = false;
-        if (userData) {
-            let olderData = JSON.parse(userData);
-            let newData = olderData.map((item) => {
-                if (`${item.id}` == `${data.item.id}`) {
-                    if (item.count > count) {
-                        item.count--;
-                    } else {
-                        item.count++;
+        try {
+            const userData = await getAsValue('data');
+            let isAvailable = false;
+            if (userData) {
+                let olderData = JSON.parse(userData);
+                let newData = olderData.map((item) => {
+                    if (`${item.id}` == `${data.item.id}`) {
+                        if (item.count > count) {
+                            item.count--;
+                        } else {
+                            item.count++;
+                        }
+                        isAvailable = true;
                     }
-                    isAvailable = true;
+                    return item;
+                });
+                if (!isAvailable) {
+                    let newobj = {
+                        ...data.item,
+                        ["count"]: 1,
+                    }
+                    let olderData = JSON.parse(userData);
+                    olderData.push(newobj);
+                    await setAsValue("data", JSON.stringify(olderData));
+                } else {
+                    await setAsValue("data", JSON.stringify(newData));
                 }
-                return item;
-            });
-            if (!isAvailable) {
+            } else {
                 let newobj = {
                     ...data.item,
                     ["count"]: 1,
                 }
-                let olderData = JSON.parse(userData);
-                olderData.push(newobj);
-                await setAsValue("data", JSON.stringify(olderData));
-            } else {
-                await setAsValue("data", JSON.stringify(newData));
+                let updateData = [];
+                updateData.push(newobj);
+                await setAsValue("data", JSON.stringify(updateData))
             }
-        } else {
-            let newobj = {
-                ...data.item,
-                ["count"]: 1,
-            }
-            let updateData = [];
-            updateData.push(newobj);
-            await setAsValue("data", JSON.stringify(updateData))
+            calculateTotal();
+        } catch (error) {
+            console.log(error)
         }
-        calculateTotal();
+
     }
-    const renderItem = (data) => {
+    const renderItem = (data: any) => {
         return (
             <FoodRenderItem data={data} initialCount={0} onClick={(count) => onAddAndRemove(data, count)} />
         )
     }
     return (
-        <View>
+        <View style={{ flex: 1 }}>
             <Header isLeft={true} leftIcon={"step-backward"} name={receivedData.item.name} leftClick={goBack} isRight={false} rightText={total} isRightText={true} />
-            <View style={{ marginBottom: '40%' }}>
-                <FlatList
-                    data={foodData}
-                    keyExtractor={index => index}
-                    renderItem={renderItem}
-                />
-            </View>
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+                <View>
+                    <FlatList
+                        data={foodData}
+                        keyExtractor={index => index}
+                        renderItem={renderItem}
+                    />
+
+                </View>
+            </ScrollView>
         </View>
+
     )
 }
 

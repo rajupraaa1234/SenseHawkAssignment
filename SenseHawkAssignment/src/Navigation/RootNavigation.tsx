@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from "../Screens/Login/LoginScreen";
 import FoodListScreen from "../Screens/FoodListScreen/FoodListScreen";
 import { getAsValue } from '@utils';
+import AddToCartScreen from "../Screens/AddToCartScreen";
 import HomeScreen from "../Screens/HomeScreen";
 
 const RootNavigation = () => {
@@ -39,9 +40,13 @@ const RootNavigation = () => {
                     name="HomeScreen"
                     component={HomeScreen}
                 />
-                 <Stack.Screen
+                <Stack.Screen
                     name="FoodListScreen"
                     component={FoodListScreen}
+                />
+                <Stack.Screen
+                    name="AddToCartScreen"
+                    component={AddToCartScreen}
                 />
             </Stack.Navigator>
         </NavigationContainer> :

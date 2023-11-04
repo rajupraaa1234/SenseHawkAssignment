@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
         margin: 5,
-        marginBottom: 40
     },
     cardInner: {
         flexDirection: 'row',
