@@ -24,7 +24,7 @@ const HomeScreen = (props) => {
          <View>
             <TouchableWithoutFeedback
                onPress={() => {
-                  //this.redirectToChatConverstion(item);
+                  props.navigation.navigate("FoodListScreen", { restroData: data });
                }}>
                <View style={styles.mainCardView}>
                   <View style={styles.cardInner}>
@@ -65,7 +65,7 @@ const HomeScreen = (props) => {
    }
    return (
       <View>
-         <Header isLeft={true} leftIcon={"sign-out"} name={user} leftClick={onLogout} rightIcon={"shopping-cart"}/>
+         <Header isLeft={true} leftIcon={"sign-out"} name={user} leftClick={onLogout} rightIcon={"shopping-cart"} />
          <View style={styles.innerContainer}>
             <FlatList
                data={restaurantlist}

@@ -3,6 +3,7 @@ import { ActivityIndicator, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from "../Screens/Login/LoginScreen";
+import FoodListScreen from "../Screens/FoodListScreen/FoodListScreen";
 import { getAsValue } from '@utils';
 import HomeScreen from "../Screens/HomeScreen";
 
@@ -37,6 +38,10 @@ const RootNavigation = () => {
                 <Stack.Screen
                     name="HomeScreen"
                     component={HomeScreen}
+                />
+                 <Stack.Screen
+                    name="FoodListScreen"
+                    component={FoodListScreen}
                 />
             </Stack.Navigator>
         </NavigationContainer> :

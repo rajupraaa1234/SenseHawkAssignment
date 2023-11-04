@@ -1,4 +1,4 @@
-import  {
+import {
     getFontSize,
     DeviceDimension,
     isTablet,
@@ -12,8 +12,10 @@ import {
 } from './asyncStorage'
 
 import {
-    restaurantlist
+    restaurantlist,
+    foodListData
 } from './DummyData/dummyData'
+
 
 export {
     getFontSize,
@@ -23,5 +25,6 @@ export {
     setAsValue,
     getAsValue,
     clearStorage,
-    restaurantlist
+    restaurantlist,
+    foodListData
 }
