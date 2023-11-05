@@ -77,3 +77,33 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+In this assignment, you will build a React Native application called Food Zone.
+Food Zone will be an online food ordering and delivery platform. This application will allow
+hotels, cafés, street food vendors and restaurants to increase the scope of business by
+reducing the labor cost involved. It will present information, menus and user reviews in an
+interactive and easy-to-use manner. All the restaurants within 10 km of the users’ location
+will be listed. They can choose one or more items to place an order which will land in the
+cart before checking out. They will get order confirmation once the payment is done.
+
+Task/Assignment : 
+Which parts of the application need to be built?
+      Food Zone has the following:
+      1. Login screen with Firebase Authentication
+      2. Home Page - This screen is a list of restaurants with names, ratings, distances etc.
+      3. Menu - This contains a list of cuisines with food items under each cuisine. Users
+      should be able to select the food items and add them to the cart.
+      4. Checkout - This is the final screen where all the selected items along with the total
+      price are displayed. A button to proceed with payment is visible.
+      Note: Use React Native CLI and typescript for the script.
+
+Application screenshoot 
+
+<img width="453" alt="Screenshot 2023-11-05 at 10 43 08 AM" src="https://github.com/rajupraaa1234/SenseHawkAssignment/assets/48593134/6938f538-26b6-4aca-a94a-f72d3b6219b6">
+
+
+<img width="455" alt="Screenshot 2023-11-05 at 10 44 01 AM" src="https://github.com/rajupraaa1234/SenseHawkAssignment/assets/48593134/6eb6b260-284b-46bc-af7a-400ae3368e5a">
+<img width="452" alt="Screenshot 2023-11-05 at 10 44 17 AM" src="https://github.com/rajupraaa1234/SenseHawkAssignment/assets/48593134/eeaaa349-32ab-4d80-84c4-c8df5e3654bf">
+<img width="451" alt="Screenshot 2023-11-05 at 10 44 54 AM" src="https://github.com/rajupraaa1234/SenseHawkAssignment/assets/48593134/c85a7c4c-c886-4fe7-bb5d-666b934d96e4">
+
+
