@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1017523312108",
+    "project_id": "sensehawkassignment",
+    "storage_bucket": "sensehawkassignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1017523312108:android:4ac7a64f710eaf525f1cc9",
+        "android_client_info": {
+          "package_name": "com.sensehawkassignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQZKj6R10YUck19oz4NlVOUpKDHySg-Tw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

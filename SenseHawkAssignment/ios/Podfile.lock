@@ -554,6 +554,7 @@ DEPENDENCIES:
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+  - YogaKit
 
 SPEC REPOS:
   trunk:
@@ -708,6 +709,6 @@ SPEC CHECKSUMS:
   Yoga: b76f1acfda8212aa16b7e26bcce3983230c82603
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: ed8c0a75946a57ef085ebc328ddf96cb1e062da1
+PODFILE CHECKSUM: 4290d91ecdb4ab341e3fd956eb43be3a197a63b9
 
-COCOAPODS: 1.14.2
+COCOAPODS: 1.12.1
