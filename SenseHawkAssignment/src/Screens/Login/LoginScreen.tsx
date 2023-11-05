@@ -39,7 +39,7 @@ const LoginScreen = (props: any) => {
 
   const redirectToHomeScreen = async () => {
     await setAsValue("username", username)
-    props.navigation.navigate("HomeScreen")
+    props.navigation.replace("HomeScreen")
   }
 
   const onSignUp = async () => {
