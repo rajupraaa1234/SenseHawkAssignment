@@ -308,7 +308,8 @@ export const foodListData = [
     "id": 37,
     "name": "Lobster Bisque",
     "description": "Rich and creamy lobster soup with chunks of lobster meat.",
-    "price": 13.49
+    "price": 13.49,
+    "rating": 3.8
   },
   {
     "id": 38,
