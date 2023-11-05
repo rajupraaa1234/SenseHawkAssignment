@@ -3,8 +3,8 @@ import { View, Text, FlatList, ScrollView } from 'react-native';
 import { Header, CustomButton } from '@components';
 import { getAsValue, DeviceDimension } from '@utils';
 import { useToast } from "react-native-toast-notifications";
-import { styles } from './style';
 import { STRING } from '@constants';
+import styles from './style';
 
 const AddToCartScreen = (props: any) => {
     const [OrderedData, setOrderedData] = useState([]);

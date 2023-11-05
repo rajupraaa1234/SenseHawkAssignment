@@ -3,6 +3,7 @@ import { View, Text, FlatList, TouchableWithoutFeedback, Image, ScrollView } fro
 import { Header } from '@components';
 import auth from '@react-native-firebase/auth';
 import { restro } from '@images';
+import { COLOR } from '@constants';
 import { getAsValue, clearStorage, restaurantlist } from '@utils';
 import styles from './styles';
 
@@ -57,7 +58,7 @@ const HomeScreen = (props) => {
                            style={styles.distance}>
                            <Text
                               style={{
-                                 color: 'gray',
+                                 color: COLOR.gray,
                                  fontSize: 12,
                               }}>
                               {data.item.distance}
@@ -67,7 +68,7 @@ const HomeScreen = (props) => {
                   </View>
                   <View
                      style={styles.rating}>
-                     <Text style={{ color: 'white' }}>
+                     <Text style={{ color: COLOR.white }}>
                         {data.item.rating}
                      </Text>
                   </View>

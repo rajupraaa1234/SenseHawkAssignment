@@ -3,11 +3,11 @@ import { View, Text, ImageBackground, TouchableOpacity, ScrollView, SafeAreaView
 import { Tracker } from '@images';
 import TextInput from "react-native-text-input-interactive";
 import { CustomButton } from '@components';
-import { STRING } from '@constants';
 import { DeviceDimension, isValidEmail, setAsValue } from '@utils';
 import style from './style'
 import { useToast } from "react-native-toast-notifications";
 import auth from '@react-native-firebase/auth';
+import { COLOR , STRING} from '@constants';
 
 const LoginScreen = (props: any) => {
   const [page, setPage] = useState(0);    // 0 for Login , 1 for Signup
@@ -143,7 +143,7 @@ const LoginScreen = (props: any) => {
               setUserName('');
               setPassword('');
             }}>
-              <Text style={{ color: 'blue' }}>{page == 0 ? STRING.dontHaveAccount : STRING.haveAccount}</Text>
+              <Text style={{ color: COLOR.blue }}>{page == 0 ? STRING.dontHaveAccount : STRING.haveAccount}</Text>
             </TouchableOpacity>
           </View>
           <ActivityIndicator animating={loader} size="large" color="#0000ff" />

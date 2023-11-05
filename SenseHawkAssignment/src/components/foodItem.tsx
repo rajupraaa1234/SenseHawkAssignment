@@ -2,7 +2,7 @@ import React, { useState, memo, useEffect } from 'react';
 import { chicken } from '@images';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { getAsValue } from '@utils';
-
+import { COLOR } from '@constants';
 
 const FoodRenderItem = (props) => {
     const { data, initialCount, onClick } = props;
@@ -23,7 +23,7 @@ const FoodRenderItem = (props) => {
     const Initialbutton = () => {
         return (
             <TouchableOpacity style={styles.initialbtn} onPress={onAddClick}>
-                <Text style={{ color: 'white' }}>Add</Text>
+                <Text style={{ color: COLOR.white }}>Add</Text>
             </TouchableOpacity>
         )
     }
@@ -42,13 +42,13 @@ const FoodRenderItem = (props) => {
         return (
             <View style={styles.addRemoveBtnGrp}>
                 <TouchableOpacity style={styles.initialbtn} onPress={onAddClick}>
-                    <Text style={{ color: 'white' }}>+</Text>
+                    <Text style={{ color: COLOR.white }}>+</Text>
                 </TouchableOpacity>
                 <View style={styles.numberOfItem}>
                     <Text style={styles.itemNumberText}>{count}</Text>
                 </View>
                 <TouchableOpacity style={styles.initialbtn} onPress={onRemove}>
-                    <Text style={{ color: 'white' }}>--</Text>
+                    <Text style={{ color: COLOR.white }}>--</Text>
                 </TouchableOpacity>
             </View>
         )
@@ -73,7 +73,7 @@ const FoodRenderItem = (props) => {
                             style={styles.distance}>
                             <Text
                                 style={{
-                                    color: 'gray',
+                                    color: COLOR.gray,
                                     fontSize: 12,
                                 }}>
                                 {data.item.description}
@@ -95,7 +95,7 @@ const FoodRenderItem = (props) => {
                 <View style={{ flex: 1, flexDirection: 'column' }}>
                     <View
                         style={styles.rating}>
-                        <Text style={{ color: 'white' }}>
+                        <Text style={{ color: COLOR.white }}>
                             {data.item.rating}
                         </Text>
                     </View>
@@ -113,7 +113,7 @@ FoodRenderItem.defaultProps = {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: COLOR.white,
     },
     innerContainer: {
         margin: 5,
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     },
     restroName: {
         fontSize: 14,
-        color: 'black',
+        color: COLOR.black,
         fontWeight: 'bold',
         textTransform: 'capitalize',
     },
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     },
     rating: {
         height: 30,
-        backgroundColor: 'pink',
+        backgroundColor: COLOR.pink,
         borderWidth: 0,
         width: 30,
         marginLeft: -26,
@@ -152,9 +152,9 @@ const styles = StyleSheet.create({
     mainCardView: {
         height: 150,
         alignItems: 'center',
-        backgroundColor: 'white',
+        backgroundColor: COLOR.white,
         borderRadius: 15,
-        shadowColor: 'gray',
+        shadowColor: COLOR.gray,
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 1,
         shadowRadius: 8,
@@ -172,8 +172,8 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         borderRadius: 25,
-        backgroundColor: 'black',
-        borderColor: 'gray',
+        backgroundColor: COLOR.black,
+        borderColor: COLOR.gray,
         borderWidth: 1,
         borderStyle: 'solid',
         alignItems: 'center',
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     initialbtn: {
         width: 60,
         height: 35,
-        backgroundColor: '#387FE9',
+        backgroundColor: COLOR.inmitialBtnColor,
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center'
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     itemNumberText: {
-        color: 'gray',
+        color: COLOR.gray,
         fontSize: 15
     }
 });

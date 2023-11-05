@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
+import { COLOR } from '@constants';
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: COLOR.white,
     },
     innerContainer: {
         margin: 5,
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
     },
     restroName: {
         fontSize: 14,
-        color: 'black',
+        color: COLOR.black,
         fontWeight: 'bold',
         textTransform: 'capitalize',
     },
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     },
     rating: {
         height: 30,
-        backgroundColor: 'pink',
+        backgroundColor: COLOR.pink,
         borderWidth: 0,
         width: 30,
         marginLeft: -26,
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     mainCardView: {
         height: 120,
         alignItems: 'center',
-        backgroundColor: 'white',
+        backgroundColor: COLOR.white,
         borderRadius: 15,
         shadowColor: 'gray',
         shadowOffset: { width: 0, height: 0 },
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         borderRadius: 25,
-        backgroundColor: 'black',
+        backgroundColor: COLOR.black,
         borderColor: 'gray',
         borderWidth: 1,
         borderStyle: 'solid',

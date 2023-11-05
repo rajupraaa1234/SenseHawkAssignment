@@ -1,14 +1,15 @@
 import { StyleSheet } from "react-native";
 import { DeviceDimension } from '@utils';
+import { COLOR } from '@constants';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     itemContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 16,
         borderBottomWidth: 1,
-        borderBottomColor: '#e0e0e0',
+        borderBottomColor: COLOR.lightGray,
     },
     itemName: {
         fontSize: 16,
@@ -16,7 +17,7 @@ export const styles = StyleSheet.create({
     },
     itemPrice: {
         fontSize: 16,
-        color: 'black',
+        color: COLOR.black,
         fontWeight: "600"
     },
     totalContainer: {
@@ -38,4 +39,6 @@ export const styles = StyleSheet.create({
         height: DeviceDimension.height / 2
     }
 });
+
+export default styles;
 

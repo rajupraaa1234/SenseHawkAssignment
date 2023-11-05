@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { COLOR } from '@constants';
 
 
 
@@ -11,13 +12,13 @@ const Header = (props: any) => {
         <View>
             <View style={[Mystyle.container, { ...style }]}>
                 <TouchableOpacity onPress={leftClick} style={Mystyle.leftIcon}>
-                    {isLeft && <Icon name={leftIcon} size={30} color="gray" />}
+                    {isLeft && <Icon name={leftIcon} size={30} color={COLOR.gray} />}
                 </TouchableOpacity>
                 <View style={Mystyle.nameContainer}>
                     <Text style={Mystyle.nameTxt}>{name}</Text>
                 </View>
-                <TouchableOpacity onPress={rightClick} style={Mystyle.rightIcon}>
-                    {isRight && <Icon name={rightIcon} size={30} color="gray" />}
+                <TouchableOpacity onPress={rightClick} style={Mystyle.rightIcon} disabled={isRightText}>
+                    {isRight && <Icon name={rightIcon} size={30} color={COLOR.gray} />}
                     {isRightText &&
                         <View style={Mystyle.countTotal}>
                             <Text style={Mystyle.rightText}>{rightText}</Text>
@@ -44,7 +45,7 @@ const Mystyle = StyleSheet.create({
     },
     seprator: {
         height: 1,
-        backgroundColor: '#D3D3D3',
+        backgroundColor: COLOR.sepratorColor,
         width: '100%'
     },
     countTotal: {
@@ -52,7 +53,7 @@ const Mystyle = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 5,
         padding: 5,
-        backgroundColor: '#387FE9'
+        backgroundColor: COLOR.totalCount
     },
     nameContainer: {
         alignItems: 'center',
