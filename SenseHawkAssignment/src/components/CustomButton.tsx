@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { COLOR } from '@constants';
+import { getFontSize } from '@utils';
 
 const CustomButton = (props: any) => {
     const {
@@ -29,7 +30,7 @@ CustomButton.defaultProps = {
 const style = StyleSheet.create({
     btnStyle: {
         color: COLOR.black,
-        fontSize: 20,
+        fontSize: getFontSize(20),
     },
     container: {
         backgroundColor: COLOR.CustomBtnColor,

@@ -4,7 +4,7 @@ import { Header } from '@components';
 import auth from '@react-native-firebase/auth';
 import { restro } from '@images';
 import { COLOR } from '@constants';
-import { getAsValue, clearStorage, restaurantlist } from '@utils';
+import { getAsValue, clearStorage, restaurantlist , getFontSize } from '@utils';
 import styles from './styles';
 
 const HomeScreen = (props) => {
@@ -59,7 +59,7 @@ const HomeScreen = (props) => {
                            <Text
                               style={{
                                  color: COLOR.gray,
-                                 fontSize: 12,
+                                 fontSize: getFontSize(12),
                               }}>
                               {data.item.distance}
                            </Text>

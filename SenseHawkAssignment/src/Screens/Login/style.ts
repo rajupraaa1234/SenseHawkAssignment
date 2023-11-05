@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { COLOR } from '@constants';
+import { getFontSize } from '@utils';
 
 
 const style = StyleSheet.create({
@@ -22,7 +23,7 @@ const style = StyleSheet.create({
     backgroundColor: COLOR.blue,
   },
   loginText: {
-    fontSize: 25,
+    fontSize: getFontSize(25),
     fontWeight: '500',
     color: COLOR.gray
   },

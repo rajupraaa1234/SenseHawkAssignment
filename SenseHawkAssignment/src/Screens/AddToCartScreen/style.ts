@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { DeviceDimension } from '@utils';
+import { DeviceDimension , getFontSize } from '@utils';
 import { COLOR } from '@constants';
 
 const styles = StyleSheet.create({
@@ -12,11 +12,11 @@ const styles = StyleSheet.create({
         borderBottomColor: COLOR.lightGray,
     },
     itemName: {
-        fontSize: 16,
+        fontSize: getFontSize(16),
         fontWeight: 'bold',
     },
     itemPrice: {
-        fontSize: 16,
+        fontSize: getFontSize(16),
         color: COLOR.black,
         fontWeight: "600"
     },

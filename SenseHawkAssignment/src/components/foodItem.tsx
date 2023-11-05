@@ -1,7 +1,7 @@
 import React, { useState, memo, useEffect } from 'react';
 import { chicken } from '@images';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { getAsValue } from '@utils';
+import { getAsValue , getFontSize ,DeviceDimension } from '@utils';
 import { COLOR } from '@constants';
 
 const FoodRenderItem = (props) => {
@@ -74,7 +74,7 @@ const FoodRenderItem = (props) => {
                             <Text
                                 style={{
                                     color: COLOR.gray,
-                                    fontSize: 12,
+                                    fontSize: getFontSize(12),
                                 }}>
                                 {data.item.description}
                             </Text>
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
         width: 60,
     },
     restroName: {
-        fontSize: 14,
+        fontSize: getFontSize(14),
         color: COLOR.black,
         fontWeight: 'bold',
         textTransform: 'capitalize',
@@ -140,17 +140,17 @@ const styles = StyleSheet.create({
         width: '85%',
     },
     rating: {
-        height: 30,
+        height: DeviceDimension.height/30,
         backgroundColor: COLOR.pink,
         borderWidth: 0,
-        width: 30,
+        width: DeviceDimension.height/30,
         marginLeft: -26,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 50,
     },
     mainCardView: {
-        height: 150,
+        height: DeviceDimension.height/5,
         alignItems: 'center',
         backgroundColor: COLOR.white,
         borderRadius: 15,
@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
         marginRight: 16,
     },
     subCardView: {
-        height: 50,
-        width: 50,
+        height: DeviceDimension.height/15,
+        width: DeviceDimension.height/15,
         borderRadius: 25,
         backgroundColor: COLOR.black,
         borderColor: COLOR.gray,
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     },
     itemNumberText: {
         color: COLOR.gray,
-        fontSize: 15
+        fontSize: getFontSize(15)
     }
 });
 

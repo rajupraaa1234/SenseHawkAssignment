@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { COLOR } from '@constants';
+import { getFontSize, DeviceDimension } from '@utils';
 
 const styles = StyleSheet.create({
     container: {
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
         width: 60,
     },
     restroName: {
-        fontSize: 14,
+        fontSize: getFontSize(14),
         color: COLOR.black,
         fontWeight: 'bold',
         textTransform: 'capitalize',
@@ -40,11 +41,11 @@ const styles = StyleSheet.create({
         borderRadius: 50,
     },
     mainCardView: {
-        height: 120,
+        height: DeviceDimension.height / 8,
         alignItems: 'center',
         backgroundColor: COLOR.white,
         borderRadius: 15,
-        shadowColor: 'gray',
+        shadowColor: COLOR.gray,
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 1,
         shadowRadius: 8,
@@ -59,11 +60,11 @@ const styles = StyleSheet.create({
         marginRight: 16,
     },
     subCardView: {
-        height: 50,
-        width: 50,
+        height: DeviceDimension.height / 15,
+        width: DeviceDimension.height / 15,
         borderRadius: 25,
         backgroundColor: COLOR.black,
-        borderColor: 'gray',
+        borderColor: COLOR.gray,
         borderWidth: 1,
         borderStyle: 'solid',
         alignItems: 'center',

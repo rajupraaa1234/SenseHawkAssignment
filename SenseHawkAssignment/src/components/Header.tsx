@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { COLOR } from '@constants';
+import { getFontSize , DeviceDimension } from '@utils';
 
 
 
@@ -36,7 +37,7 @@ const Header = (props: any) => {
 const Mystyle = StyleSheet.create({
     container: {
         width: '100%',
-        height: 80,
+        height: DeviceDimension.height/10,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -62,7 +63,7 @@ const Mystyle = StyleSheet.create({
         alignSelf: 'center',
     },
     nameTxt: {
-        fontSize: 20,
+        fontSize: getFontSize(20),
         fontWeight: '500'
     },
     leftIcon: {
@@ -74,8 +75,8 @@ const Mystyle = StyleSheet.create({
         marginRight: 20
     },
     rightText: {
-        color: 'white',
-        fontSize: 20
+        color: COLOR.white,
+        fontSize: getFontSize(20)
     }
 })
 
